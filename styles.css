@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #242222;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #57d4e0;
+    padding: 10px 20px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+.nav-button {
+    text-decoration: none;
+    color: white;
+    background-color: #ff5733;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #e74c3c;
+}
+
+.language-icon img {
+    height: 30px;
+}
+
+.hero {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(138, 111, 147, 0.7);
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content h1 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+}
+
+.cta-button {
+    text-decoration: none;
+    color: white;
+    background-color: #ff5733;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #e74c3c;
+}
+
+.partner-college {
+    background-color: #add8e6;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.partner-college h2 {
+    margin-bottom: 20px;
+}
+
+.partner-college img {
+    height: 100px;
+}
+
+.showcase {
+    background-color: #98fb98;
+    padding: 100px 20px;
+}
+
+.showcase-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /*flex-direction: column; /* Add this line if you want to stack the items vertically */
+    /*text-align: center; /* Add this line if you want to center the text and button */
+}
+
+.showcase-content img {
+    width: 100%;
+    max-width: 500px;
+}
+
+.showcase .text-content {
+    max-width: 600px;
+    margin-left: 20px;
+}
+
+.future {
+    background-color: #add8e6;
+    padding: 40px 20px;
+}
+
+.future-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.future .text-content {
+    max-width: 600px;
+    margin-right: 20px;
+}
+
+.future-content img {
+    width: 40%;
+    max-width: 300px;
+}
+
+.transform {
+    background-color: #ffebc7;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.transform img {
+    width: 40%;
+    max-width: 300px;
+    margin-top: 20px;
+}
+
+.engagement {
+    background-color: #add8e6;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.engagement-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.engagement img {
+    width: 40%;
+    max-width: 300px;
+    margin-top: 20px;
+}
+
+.join-pixacity {
+    position: relative;
+    padding: 40px 20px;
+    text-align: center;
+    background-color: rgba(238, 187, 255, 0.7);
+}
+
+.events {
+    background-color: #ffebc7;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.events img {
+    width: 40%;
+    max-width: 300px;
+    margin-top: 20px;
+}
+
+.call-to-action {
+    background-color: #add8e6;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #98fb98;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer-column {
+    flex: 1;
+    padding: 10px;
+}
+
+.footer-column h3 {
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.footer-bottom {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-bottom a {
+    text-decoration: none;
+    color: #333;
+}
+
+
+/*i want the buttons to to align to the center. i think it is doing that by default but its getting affected by the logo size. i want it to align the buttons to align to the very center despite the logo size. how can I do that?
