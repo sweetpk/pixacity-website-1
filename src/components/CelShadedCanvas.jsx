@@ -328,10 +328,10 @@ export default function CelShadedCanvas() {
     const sunGroup = new THREE.Group();
 
     // Soft outer atmospheric bloom glow (radial shader)
-    const glowGeo = new THREE.PlaneGeometry(11, 11);
+    const glowGeo = new THREE.PlaneGeometry(14, 14);
     const glowMat = new THREE.ShaderMaterial({
       uniforms: {
-        uColor: { value: new THREE.Color(0xffe766) }
+        uColor: { value: new THREE.Color(0xffe970) }
       },
       vertexShader: `
         varying vec2 vUv;
@@ -340,33 +340,35 @@ export default function CelShadedCanvas() {
           gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
         }
       `,
-        fragmentShader: `
-          uniform vec3 uColor;
-          varying vec2 vUv;
-          void main() {
-            float dist = length(vUv - 0.5) * 2.0;
-            float alpha = pow(max(0.0, 1.0 - dist), 2.8) * 0.42;
-            gl_FragColor = vec4(uColor, alpha);
-            #include <colorspace_fragment>
-          }
-        `,
+      fragmentShader: `
+        uniform vec3 uColor;
+        varying vec2 vUv;
+        void main() {
+          float dist = length(vUv - 0.5) * 2.0;
+          float alpha = pow(max(0.0, 1.0 - dist), 2.3) * 0.65;
+          gl_FragColor = vec4(uColor, alpha);
+          #include <colorspace_fragment>
+        }
+      `,
       transparent: true,
       depthWrite: false
     });
     const glowPlane = new THREE.Mesh(glowGeo, glowMat);
     sunGroup.add(glowPlane);
 
-    // Crisp inner cel sun disc with subtle warm ring
+    // Crisp inner cel sun disc with matching ink outline + warm halo ring
     const sunDiscGeo = new THREE.SphereGeometry(1.15, 36, 36);
+    addSmoothNormals(sunDiscGeo);
     const sunDiscMat = new THREE.MeshBasicMaterial({ color: 0xffe44d });
     const sunDisc = new THREE.Mesh(sunDiscGeo, sunDiscMat);
-    sunGroup.add(sunDisc);
+    const sunOutline = new THREE.Mesh(sunDiscGeo, createScreenOutlineMaterial(0x111111, 2.2));
+    sunGroup.add(sunDisc, sunOutline);
 
-    const sunHaloRingGeo = new THREE.RingGeometry(1.26, 1.5, 48);
+    const sunHaloRingGeo = new THREE.RingGeometry(1.28, 1.54, 48);
     const sunHaloRingMat = new THREE.MeshBasicMaterial({
       color: 0xffef8f,
       transparent: true,
-      opacity: 0.32,
+      opacity: 0.48,
       side: THREE.DoubleSide
     });
     const sunHaloRing = new THREE.Mesh(sunHaloRingGeo, sunHaloRingMat);
